@@ -26,8 +26,8 @@ router.post('/test', async (req, res) => {
     return res.status(401).json({ message: 'Invalid email or password' });
   }
 
-  // Simulate token
-  return res.json({ token: 'example-jwt-token', userId: user.id });
+// Send token and userId to frontend
+return res.json({ token: 'example-jwt-token', userId: user.id });
 });
 
 export default router;

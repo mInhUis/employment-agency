@@ -1,0 +1,989 @@
+/* Main Container */
+.hp-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7ff 0%, #e8f2ff 100%);
+}
+
+/* Top Bar Styling */
+.hp-top-bar {
+  background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4) !important;
+  box-shadow: 0 4px 20px rgba(138, 143, 234, 0.2) !important;
+  color: white !important;
+  z-index: 1300 !important;
+  position: fixed;
+}
+
+.hp-app-title {
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+}
+
+.hp-quick-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hp-post-resume-btn {
+  background-color: white !important;
+  color: #7f7fd5 !important;
+  font-weight: 600 !important;
+  border-radius: 20px !important;
+  text-transform: none !important;
+  padding: 6px 16px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.hp-user-mini-avatar {
+  cursor: pointer;
+  border: 2px solid white;
+  transition: transform 0.2s ease !important;
+}
+
+.hp-user-mini-avatar:hover {
+  transform: scale(1.05) !important;
+}
+
+/* Hero Section */
+.hp-hero-section {
+  margin-top: 64px;
+  padding: 60px 24px;
+  background: linear-gradient(135deg, #ffffff, #f8f9ff);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hp-hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23e0c3fc" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%238ec5fc" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%2391eae4" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+}
+
+.hp-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hp-hero-title {
+  font-weight: 800 !important;
+  color: #333;
+  margin-bottom: 16px !important;
+  background: linear-gradient(135deg, #7f7fd5, #86a8e7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hp-hero-subtitle {
+  color: #666;
+  margin-bottom: 40px !important;
+  font-weight: 400 !important;
+}
+
+.hp-hero-search {
+  margin-bottom: 48px;
+}
+
+.hp-search-row {
+  display: flex;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 50px;
+  padding: 8px;
+  box-shadow: 0 8px 32px rgba(127, 127, 213, 0.15);
+  border: 2px solid rgba(127, 127, 213, 0.1);
+}
+
+.hp-search-field,
+.hp-location-field {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 25px;
+}
+
+.hp-search-field {
+  border-right: 1px solid #f0f0f0;
+}
+
+.hp-search-icon,
+.hp-location-icon {
+  color: #7f7fd5;
+  margin-right: 12px;
+}
+
+.hp-search-input,
+.hp-location-input {
+  flex: 1;
+  font-size: 16px;
+  color: #333;
+}
+
+.hp-search-input::placeholder,
+.hp-location-input::placeholder {
+  color: #999;
+}
+
+.hp-search-btn {
+  background: linear-gradient(135deg, #7f7fd5, #86a8e7) !important;
+  color: white !important;
+  border-radius: 25px !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  padding: 12px 32px !important;
+  margin-left: 8px !important;
+  font-size: 1.1rem !important;
+}
+
+.hp-quick-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 32px;
+}
+
+.hp-stat {
+  text-align: center;
+}
+
+.hp-stat-number {
+  font-weight: 800 !important;
+  color: #7f7fd5;
+  margin-bottom: 4px !important;
+}
+
+.hp-stat-label {
+  color: #666;
+  font-weight: 500 !important;
+}
+
+/* Filters Section */
+.hp-filters-section {
+  padding: 24px;
+  background: white;
+  box-shadow: 0 4px 20px rgba(127, 127, 213, 0.1);
+  border-radius: 24px 24px 0 0;
+  margin: 0 16px;
+}
+
+.hp-filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.hp-filters-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #7f7fd5;
+}
+
+.hp-clear-filters-btn {
+  color: #666 !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+}
+
+.hp-filters-content {
+  width: 100%;
+}
+
+.hp-filter-accordion {
+  background: #f8f9ff !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(127, 127, 213, 0.1) !important;
+  margin-bottom: 8px !important;
+}
+
+.hp-filter-accordion:before {
+  display: none !important;
+}
+
+.hp-salary-slider {
+  color: #7f7fd5 !important;
+}
+
+.hp-remote-filter {
+  background: #f8f9ff;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(127, 127, 213, 0.1);
+  height: auto;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hp-remote-checkbox {
+  color: #7f7fd5 !important;
+}
+
+.hp-remote-label {
+  font-weight: 600 !important;
+  color: #333 !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+
+.hp-remote-label .MuiFormControlLabel-label {
+  font-size: 0.9rem !important;
+  line-height: 1.2 !important;
+}
+
+/* Content Layout - Always in same row */
+.hp-content-layout {
+    display: flex;
+    flex: 1; /* Allow it to grow and take remaining vertical space */
+    gap: 16px;
+    padding: 0 16px 16px;
+    margin-top: 16px;
+    /* Removed min-height here, let flex manage it based on content/viewport */
+    align-items: flex-start; /* Align items to the top */
+    min-height: calc(100vh - 200px); /* Keep this as a general fallback for the whole layout if needed */
+}
+
+/* Sidebar Styling - Responsive widths */
+.hp-sidebar {
+  width: 350px;
+  flex-shrink: 0;
+  height: calc(4000vh - 250px);
+  position: sticky;
+  top: 180px;
+  /* Ensure the sidebar itself can handle scrolling content */
+  min-height: 0;
+  overflow: hidden; /* Prevent sidebar from overflowing */
+}
+
+/* Main Content Styling - Takes remaining space */
+.hp-main-content {
+    flex-grow: 1;
+    min-width: 0; /* Allows flex item to shrink below content size */
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(127, 127, 213, 0.15);
+    /* Modified sticky properties */
+    position: sticky;
+    top: 16px; /* Stick to the top of .hp-content-layout's padding */
+    height: calc(100vh - 5px); /* Make it fill the available height (considering top bar and hero) */
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack its children vertically */
+    overflow-y: hidden; /* Control scrolling *inside* this container with its children */
+    /* Removed bottom: 0px; as it can conflict with height and top in sticky positioning */
+}
+
+.hp-sidebar-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(127, 127, 213, 0.15);
+  /* Ensure the container can handle unlimited content */
+  min-height: 0;
+}
+
+.hp-sidebar-header {
+  padding: 20px;
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+  color: white;
+  border-radius: 20px 20px 0 0;
+  flex-shrink: 0;
+}
+
+.hp-sidebar-title {
+  font-weight: 600 !important;
+  margin-bottom: 4px !important;
+  font-size: 1.1rem !important;
+}
+
+.hp-job-count {
+  opacity: 0.9;
+  font-size: 0.9rem !important;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.hp-sidebar-controls {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.hp-sort-controls {
+  width: 100%;
+}
+
+.hp-sort-select {
+  background: #f8f9ff !important;
+}
+
+.hp-view-controls {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.hp-view-btn {
+  color: #666 !important;
+  border-radius: 8px !important;
+}
+
+.hp-view-btn.active {
+  background: #f0f2ff !important;
+  color: #7f7fd5 !important;
+}
+
+/* Increase job panel size and fix text display */
+.hp-job-item {
+  padding: 16px;
+  border-radius: 12px !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  background: #f8f9ff;
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.hp-job-item-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.hp-company-logo {
+  width: 40px !important;
+  height: 40px !important;
+  flex-shrink: 0;
+}
+
+.hp-job-item-info {
+  flex-grow: 1;
+  min-width: 0;
+  overflow: visible;
+}
+
+.hp-job-item-title {
+  font-weight: 600 !important;
+  color: #333;
+  margin-bottom: 4px !important;
+  font-size: 1rem !important;
+  line-height: 1.4 !important;
+  overflow: visible;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-width: 100%;
+}
+
+.hp-job-item-company {
+  color: #666;
+  margin-bottom: 6px !important;
+  font-size: 0.9rem !important;
+  overflow: visible;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  max-width: 100%;
+}
+
+.hp-job-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.hp-bookmark-btn {
+  color: #7f7fd5 !important;
+  padding: 4px !important;
+}
+
+.hp-job-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.hp-job-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #666;
+  font-size: 0.85rem !important;
+  overflow: visible;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.hp-job-item-meta svg {
+  font-size: 16px !important;
+  flex-shrink: 0;
+}
+
+.hp-job-item-meta span {
+  overflow: visible;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.hp-job-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 12px;
+  margin-top: 6px;
+}
+
+.hp-job-tag {
+  background-color: #e8f2ff !important;
+  color: #7f7fd5 !important;
+  border-radius: 8px !important;
+  font-size: 0.8rem !important;
+  height: 24px !important;
+}
+
+.hp-job-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.hp-posted-date,
+.hp-applicants {
+  color: #999;
+  font-size: 0.85rem !important;
+}
+
+.hp-job-detail-container {
+    padding: 32px;
+    flex-grow: 1; /* Make it fill available space within hp-main-content */
+    overflow-y: auto; /* IMPORTANT: This makes the job details itself scrollable */
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+    display: flex; /* Make it a flex container for its own content */
+    flex-direction: column; /* Stack its content vertically */
+    min-height: 0; /* Allow content to shrink if needed within the scrollable area */
+}
+
+.hp-job-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #f0f2ff;
+}
+
+.hp-job-header-info {
+  display: flex;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.hp-job-detail-logo {
+  width: 80px !important;
+  height: 80px !important;
+  border: 3px solid #f0f2ff;
+}
+
+.hp-job-header-text {
+  flex-grow: 1;
+}
+
+.hp-job-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.hp-job-detail-title {
+  font-weight: 700 !important;
+  color: #333;
+}
+
+.hp-featured-chip {
+  background: linear-gradient(135deg, #ffd700, #ffed4e) !important;
+  color: #b8860b !important;
+  font-weight: 600 !important;
+}
+
+.hp-job-detail-company {
+  color: #7f7fd5;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+}
+
+.hp-job-detail-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.hp-job-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.hp-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #666;
+  background: #f8f9ff;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.hp-job-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hp-bookmark-detail-btn {
+  color: #7f7fd5 !important;
+  background: #f0f2ff !important;
+}
+
+.hp-apply-btn {
+  background: linear-gradient(135deg, #7f7fd5, #86a8e7) !important;
+  border-radius: 12px !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  padding: 12px 32px !important;
+  font-size: 1.1rem !important;
+}
+
+.hp-job-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hp-section-title {
+  font-weight: 600 !important;
+  color: #333;
+  margin-bottom: 16px !important;
+}
+
+.hp-job-tags-section {
+  background: #f8f9ff;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.hp-job-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hp-job-detail-tag {
+  background: linear-gradient(135deg, #e8f2ff, #f0f2ff) !important;
+  color: #7f7fd5 !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+}
+
+.hp-job-description {
+  color: #555;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.hp-requirements-list,
+.hp-benefits-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.hp-requirements-list li,
+.hp-benefits-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 8px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.hp-requirements-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #7f7fd5;
+  font-weight: bold;
+}
+
+.hp-benefits-list li:before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  color: #86a8e7;
+  font-weight: bold;
+}
+
+.hp-job-stats-card {
+  padding: 20px;
+  border-radius: 16px !important;
+  background: linear-gradient(135deg, #f8f9ff, #ffffff) !important;
+  border: 1px solid rgba(127, 127, 213, 0.1);
+}
+
+.hp-stats-title {
+  font-weight: 600 !important;
+  color: #333;
+  margin-bottom: 16px !important;
+}
+
+.hp-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.hp-stat-item {
+  text-align: center;
+  padding: 12px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(127, 127, 213, 0.1);
+}
+
+.hp-stat-value {
+  font-weight: 700 !important;
+  color: #7f7fd5;
+  margin-bottom: 4px !important;
+}
+
+.hp-stat-label {
+  color: #666;
+}
+
+/* No Job Selected State */
+.hp-no-job-selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 32px;
+}
+
+.hp-no-job-content {
+  text-align: center;
+  max-width: 400px;
+}
+
+.hp-no-job-icon {
+  font-size: 80px !important;
+  color: #c1c1c1;
+  margin-bottom: 24px;
+}
+
+.hp-no-job-title {
+  font-weight: 600 !important;
+  color: #666;
+  margin-bottom: 12px !important;
+}
+
+.hp-no-job-subtitle {
+  color: #999;
+  line-height: 1.6;
+}
+
+/* User Menu Styling */
+.hp-user-menu-item {
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  min-height: 40px !important;
+}
+
+.hp-user-menu-item:hover {
+  background-color: #f8f9ff !important;
+}
+
+.hp-logout-item {
+  color: #d32f2f !important;
+}
+
+.hp-logout-item:hover {
+  background-color: #ffebee !important;
+}
+
+.hp-logout-item .MuiListItemIcon-root {
+  color: #d32f2f !important;
+}
+
+/* Responsive Design - Keep in same row but adjust sizes */
+@media (max-width: 1200px) {
+  .hp-sidebar {
+    width: 320px;
+  }
+
+  .hp-filters-content .MuiGrid-item {
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 960px) {
+  .hp-content-layout {
+    gap: 12px;
+    padding: 0 12px 12px;
+  }
+
+  .hp-sidebar {
+    width: 300px;
+  }
+
+  .hp-search-row {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .hp-search-field,
+  .hp-location-field {
+    border-right: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .hp-location-field {
+    border-bottom: none;
+  }
+
+  .hp-search-btn {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .hp-quick-stats {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .hp-job-detail-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hp-job-header-info {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hp-job-detail-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hp-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hp-job-item {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hp-content-layout {
+    gap: 8px;
+    padding: 0 8px 8px;
+  }
+
+  .hp-sidebar {
+    width: 280px;
+  }
+
+  .hp-hero-section {
+    padding: 40px 16px;
+  }
+
+  .hp-filters-section {
+    padding: 16px;
+    margin: 0 8px;
+  }
+
+  .hp-job-detail-container {
+    padding: 16px;
+  }
+
+  .hp-job-detail-content {
+    gap: 24px;
+  }
+
+  .hp-remote-filter {
+    padding: 12px;
+    min-height: 50px;
+  }
+
+  .hp-remote-label .MuiFormControlLabel-label {
+    font-size: 0.85rem !important;
+  }
+
+  .hp-job-item-title {
+    font-size: 0.95rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hp-content-layout {
+    overflow-x: auto;
+    gap: 8px;
+    padding: 0 4px 4px;
+  }
+
+  .hp-sidebar {
+    width: 220px;
+    min-width: 220px;
+  }
+
+  .hp-main-content {
+    min-width: 300px;
+  }
+
+  /* Mobile drawer overlay for very small screens */
+  .hp-sidebar.mobile-drawer {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1200;
+    width: 100%;
+    background: white;
+    border-radius: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .hp-sidebar.mobile-drawer.mobile-open {
+    transform: translateX(0);
+  }
+
+  .hp-remote-filter {
+    padding: 10px;
+    min-height: 45px;
+  }
+
+  .hp-remote-label .MuiFormControlLabel-label {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Menu button visibility - Show on mobile for drawer toggle */
+@media (min-width: 601px) {
+  .hp-menu-button {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hp-menu-button {
+    display: flex !important;
+  }
+}
+
+/* Ensure sidebar content is scrollable on smaller screens */
+.hp-sidebar-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(127, 127, 213, 0.15);
+  /* Ensure the container can handle unlimited content */
+  min-height: 0;
+}
+
+/* Enhanced scrolling for job list */
+.hp-job-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 0; /* Allows flex-grow to work properly */
+  min-height: 0; /* Ensures proper flex behavior */
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+  /* Custom scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* Webkit scrollbar styling for job list */
+.hp-job-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.hp-job-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+  margin: 8px 0;
+}
+
+.hp-job-list::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+  border: 1px solid #f1f1f1;
+}
+
+.hp-job-list::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Horizontal scroll for very small screens */
+@media (max-width: 480px) {
+  .hp-content-layout {
+    padding: 0 2px 2px;
+  }
+
+  .hp-sidebar {
+    width: 200px;
+    min-width: 200px;
+  }
+
+  .hp-main-content {
+    min-width: 280px;
+  }
+}
+
+

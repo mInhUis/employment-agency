@@ -23,7 +23,7 @@ import {
 import { FcGoogle } from "react-icons/fc";
 import { BsLinkedin } from "react-icons/bs";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-
+import {jwtDecode} from 'jwt-decode';
 const StyledCard = styled(Card)(({ theme }) => ({
   width: "100%",
   maxWidth: 450,       // limit max width
@@ -63,6 +63,7 @@ const LoginPage = () => {
   const [error, setError] = useState("");
   const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
+
   const redirectToRegister = () => {
     navigate('/register'); };
   const redirectToDashboard = () => {
@@ -122,7 +123,14 @@ const LoginPage = () => {
 
     // TODO: Save token (e.g. localStorage), redirect user, etc.
     localStorage.setItem("token", data.token);
-    navigate("/dashboard");
+    const decodedToken = jwtDecode(data.token);
+
+    const dashboardByRole = {
+      employer: '/v2' ,
+      jobseeker: '/dashboard'
+    };
+    navigate(dashboardByRole[decodedToken.role] || '/');
+
 
     // Example: redirect or update UI
     // navigate("/dashboard");

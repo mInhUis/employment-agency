@@ -1,6 +1,6 @@
 /* Main Dashboard Layout */
-.dashboard-container {
-  display: flex;
+.Emdashboard-container {
+  display: block;
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7ff 0%, #e8f2ff 100%);
   padding: 16px;
@@ -375,6 +375,13 @@
   border-radius: 8px !important;
   text-transform: none !important;
   font-weight: 600 !important;
+}
+
+.delete-btn {
+  background: grey !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 9px !important;
 }
 
 /* Resume Cards */

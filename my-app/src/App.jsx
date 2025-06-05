@@ -2,8 +2,12 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashBoardPage from './pages/DashBoardPage';
-import ProtectedRoute from './pages/components/ProtectedRoute';
+import EmDashBoardPage from './pages/EmDashBoardPage';
+import Home from './pages/Home';
 import { jwtDecode } from 'jwt-decode';
+import { RoleRedirect } from './pages/components/RoleRedirect'; 
+import PostJobPage from './pages/PostJobPage';
+import EditJobPage from './pages/EditJobPage';
 
 function App() {
 
@@ -18,22 +22,26 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route
           path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <DashBoardPage />
-            </ProtectedRoute>
-          }
+          element={RoleRedirect({ userRole })}
         />
-        <Route path="/unauthorized" element={<LoginPage />} />
         <Route
           path="/v2"
-          element={userRole === "employer" ? <EmDashBoardPage /> : <Navigate to="/unauthorized" />}
+          element={RoleRedirect({ userRole })} // Redirect based on role
         />
-      </Routes>
+        <Route
+          path="/post-job"
+          element={userRole === "employer" ? <PostJobPage /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/edit-job/:id"
+          element={userRole === "employer" ? <EditJobPage /> : <Navigate to="/" />}
+        /> 
+          </Routes>
     </BrowserRouter>
   );
 }

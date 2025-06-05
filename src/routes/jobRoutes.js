@@ -5,7 +5,7 @@ import { postJob, getJob, getJobs, putJob, removeJob } from "../controller/jobCo
 const router = express.Router();
 
 router.get("/", getJobs);
-router.get(":id", getJob);
+router.get("/:id", getJob);
 
 router.post("/", authenticateToken, authorizeRoles("employer"), postJob);
 router.put("/:id", authenticateToken, authorizeRoles("employer"), putJob);

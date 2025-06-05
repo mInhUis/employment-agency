@@ -71,7 +71,7 @@ export default function DashBoardPage() {
   }
 
   const handleLogout = () => {
-    localStorage.removeItem("user")
+    localStorage.removeItem("token")
     
     console.log("User logged out")
     handleUserMenuClose()
@@ -126,7 +126,7 @@ export default function DashBoardPage() {
   ]
 
   const sidebar = (
-    <div className="sidebar-container">
+    <div className="dash-sidebar-container">
       <div className="user-profile">
         <Avatar src="/placeholder.svg?height=80&width=80" alt="User Profile" className="user-avatar" />
         <Typography variant="h6" className="user-name">
@@ -165,7 +165,7 @@ export default function DashBoardPage() {
 
       <Divider />
       <div style={{ position: 'sticky', top: 64, zIndex: 1, backgroundColor: '#fff' }}>
-      <Tabs value={sidebarTab} onChange={handleTabChange} variant="fullWidth" className="sidebar-tabs">
+      <Tabs value={sidebarTab} onChange={handleTabChange} variant="fullWidth" className="dash-sidebar-tabs">
         <Tab label="Profile" icon={<Person fontSize="small" />} />
         <Tab label="Jobs" icon={<BusinessCenter fontSize="small" />} />
         <Tab label="Settings" icon={<Settings fontSize="small" />} />
@@ -369,7 +369,7 @@ export default function DashBoardPage() {
       </AppBar>
 
       {/* Sidebar */}
-      <Box component="nav" className="sidebar">
+      <Box component="nav" className="dash-sidebar">
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -512,4 +512,3 @@ export default function DashBoardPage() {
     </div>
   )
 }
-

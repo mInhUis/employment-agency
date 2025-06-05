@@ -1,9 +1,17 @@
 import * as JobModel from '../models/jobModels.js';
 
 export async function postJob(req, res) {
-  const { title, description, location, salary } = req.body;
+  const { title, description, location, salary, department, requirements,
+    benefits,
+    skills,
+    applicationDeadline,
+    contactEmail } = req.body;
   const employer_id = req.user.id;
-  const jobId = await JobModel.createJob({ title, description, location, salary, employer_id });
+  const jobId = await JobModel.createJob({ title, description, location, salary, employer_id, department, requirements,
+    benefits,
+    skills,
+    applicationDeadline,
+    contactEmail });
   res.status(201).json({ message: 'Job posted', jobId });
 }
 
@@ -19,11 +27,9 @@ export async function getJob(req, res) {
 }
 
 export async function putJob(req, res) {
-  const job = await JobModel.getJobById(req.params.id);
+  const job = await JobModel.getJobById_specific(req.params.id);
   if (!job) return res.status(404).json({ error: 'Job not found' });
-
-  if (job.employer_id !== req.user.id) return res.status(403).json({ error: 'Not your job' });
-
+  
   await JobModel.updateJob(req.params.id, req.body);
   res.json({ message: 'Job updated' });
 }
@@ -32,7 +38,6 @@ export async function removeJob(req, res) {
   const job = await JobModel.getJobById(req.params.id);
   if (!job) return res.status(404).json({ error: 'Job not found' });
 
-  if (job.employer_id !== req.user.id) return res.status(403).json({ error: 'Not your job' });
   
   await JobModel.deleteJob(req.params.id);
   res.json({ message: 'Job deleted' });
