@@ -74,6 +74,8 @@ export default function EditJobPage() {
   const navigate = useNavigate()
   const {id} = useParams()
   const steps = ["Basic Information", "Job Details", "Requirements & Benefits", "Review & Publish"]
+  const token = localStorage.getItem("token")
+  
 
   const handleUserMenuClick = (event) => {
     setAnchorEl(event.currentTarget)

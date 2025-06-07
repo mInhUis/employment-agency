@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import {
   AppBar,
   Avatar,
@@ -44,8 +43,10 @@ import {
 } from "@mui/icons-material"
 import "./components/dashboard.css"
 import { useNavigate } from "react-router-dom"
-
-
+import { useEffect , useState} from "react"
+import axios from "../util/axios.js"
+import JobApplyButton from "./btn/apply-button"
+import { jwtDecode } from "jwt-decode"
 
 export default function DashBoardPage() {
   const [sidebarTab, setSidebarTab] = useState(0)
@@ -76,39 +77,40 @@ export default function DashBoardPage() {
     console.log("User logged out")
     handleUserMenuClose()
     navigate("/login")
+    window.location.reload();
+
   
   }
 
+  const token = localStorage.getItem("token");
+  const userName = jwtDecode(token).name;
+
+  const [recJob, setRecJob] = useState([]);
+
+  useEffect (() =>{
+    fetchJobs();
+  },[]);
+
+  useEffect(() => {
+  console.log("recJob :", recJob);
+}, [recJob]);
+
+  const fetchJobs = async () => {
+    try {
+      
+
+      const res = await axios.get('/jobs');
+      console.log("recJob updated:", res.data);
+      setRecJob(res.data);
+    } catch (error){
+      console.error("Error fetching jobs:", error);
+    }
+  };
+  
+  const handleApply = (jobId) => {
+
+  }
   // Mock data
-  const recommendedJobs = [
-    {
-      id: 1,
-      title: "Senior Frontend Developer",
-      company: "TechCorp",
-      location: "San Francisco, CA",
-      salary: "$120k - $150k",
-      logo: "/placeholder.svg?height=40&width=40",
-      tags: ["React", "TypeScript"],
-    },
-    {
-      id: 2,
-      title: "UX Designer",
-      company: "DesignHub",
-      location: "Remote",
-      salary: "$90k - $110k",
-      logo: "/placeholder.svg?height=40&width=40",
-      tags: ["Figma", "UI/UX"],
-    },
-    {
-      id: 3,
-      title: "Product Manager",
-      company: "InnovateCo",
-      location: "New York, NY",
-      salary: "$130k - $160k",
-      logo: "/placeholder.svg?height=40&width=40",
-      tags: ["Agile", "SaaS"],
-    },
-  ]
 
   const recentSearches = [
     { id: 1, query: "Frontend Developer", date: "2 days ago", results: 243 },
@@ -130,11 +132,9 @@ export default function DashBoardPage() {
       <div className="user-profile">
         <Avatar src="/placeholder.svg?height=80&width=80" alt="User Profile" className="user-avatar" />
         <Typography variant="h6" className="user-name">
-          Jessica Thompson
+          {userName}
         </Typography>
-        <Typography variant="body2" className="user-title">
-          UX Designer
-        </Typography>
+        
         <div className="user-stats">
           <div className="stat-item">
             <Typography variant="body2" className="stat-value">
@@ -341,7 +341,7 @@ export default function DashBoardPage() {
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
               <MenuItem onClick={handleUserMenuClose} className="user-menu-item">
-                <Avatar src="/placeholder.svg?height=32&width=32" /> Jessica Thompson
+                <Avatar src="/placeholder.svg?height=32&width=32" /> {userName}
               </MenuItem>
               <Divider />
               <MenuItem onClick={handleUserMenuClose} className="user-menu-item">
@@ -400,7 +400,7 @@ export default function DashBoardPage() {
       <main className="main-content">
         <div className="content-container">
           <Typography variant="h4" className="welcome-text">
-            Welcome back, Jessica!
+            Welcome back, {userName}!
           </Typography>
           <Typography variant="body1" className="subtitle-text">
             You have 3 new job recommendations today
@@ -416,13 +416,13 @@ export default function DashBoardPage() {
             </div>
 
             <div className="job-cards">
-              {recommendedJobs.map((job) => (
+              {Array.isArray(recJob) && recJob.map((job) => (
                 <Card key={job.id} className="job-card">
                   <div className="job-card-header">
-                    <Avatar src={job.logo} alt={job.company} />
+                    <Avatar src={job.logo} alt={job.location} />
                     <div className="job-card-title">
                       <Typography variant="h6">{job.title}</Typography>
-                      <Typography variant="body2">{job.company}</Typography>
+                      <Typography variant="body2">{job.status}</Typography>
                     </div>
                     <IconButton className="bookmark-btn">
                       <Bookmark />
@@ -439,16 +439,22 @@ export default function DashBoardPage() {
                       <Typography variant="body2">{job.salary}</Typography>
                     </div>
                   </div>
-
+                
                   <div className="job-tags">
-                    {job.tags.map((tag) => (
-                      <Chip key={tag} label={tag} size="small" className="job-tag" />
-                    ))}
+                    {Array.isArray(job.tags) && job.tags.length > 0 ? (
+                      job.tags.map((tag) => (
+                       <Chip key={tag} label={tag} size="small" className="job-tag" />
+                      ))
+                    ) : (
+                      <Typography variant="caption" color="textSecondary">No tags</Typography>
+                    )}
                   </div>
 
-                  <Button variant="contained" className="apply-btn">
-                    Apply Now
-                  </Button>
+                  <JobApplyButton
+                    job={job}
+                    variant="contained"
+                    size="small"
+                    fullWidth />
                 </Card>
               ))}
             </div>

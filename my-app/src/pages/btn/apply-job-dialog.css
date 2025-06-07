@@ -1,0 +1,467 @@
+/* Dialog Styling */
+.ajd-dialog .MuiDialog-paper {
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.ajd-dialog-paper {
+  max-height: 90vh;
+}
+
+.ajd-dialog-title {
+  background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4) !important;
+  color: white !important;
+  padding: 16px 24px !important;
+}
+
+.ajd-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ajd-job-info {
+  flex-grow: 1;
+}
+
+.ajd-job-title {
+  font-weight: 700 !important;
+  margin-bottom: 4px !important;
+}
+
+.ajd-job-company {
+  opacity: 0.9;
+}
+
+.ajd-close-button {
+  color: white !important;
+}
+
+.ajd-dialog-content {
+  padding: 24px !important;
+  overflow-y: auto;
+}
+
+/* Stepper Styling */
+.ajd-stepper {
+  margin-bottom: 32px !important;
+}
+
+.ajd-stepper .MuiStepIcon-root {
+  color: #e0e0e0 !important;
+}
+
+.ajd-stepper .MuiStepIcon-root.Mui-active {
+  color: #7f7fd5 !important;
+}
+
+.ajd-stepper .MuiStepIcon-root.Mui-completed {
+  color: #7f7fd5 !important;
+}
+
+.ajd-stepper .MuiStepLabel-label {
+  font-weight: 600 !important;
+  color: #666 !important;
+}
+
+.ajd-stepper .MuiStepLabel-label.Mui-active {
+  color: #7f7fd5 !important;
+}
+
+.ajd-stepper .MuiStepLabel-label.Mui-completed {
+  color: #7f7fd5 !important;
+}
+
+/* Form Section Styling */
+.ajd-form-section {
+  margin-bottom: 24px;
+}
+
+.ajd-section-title {
+  font-weight: 700 !important;
+  color: #333;
+  margin-bottom: 8px !important;
+}
+
+.ajd-section-subtitle {
+  color: #666;
+  margin-bottom: 24px !important;
+}
+
+/* Form Elements */
+.ajd-text-field {
+  margin-bottom: 16px !important;
+}
+
+.ajd-text-field .MuiOutlinedInput-root {
+  border-radius: 12px !important;
+}
+
+.ajd-text-field .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #7f7fd5 !important;
+}
+
+.ajd-text-field .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #7f7fd5 !important;
+}
+
+.ajd-text-field .MuiInputLabel-root.Mui-focused {
+  color: #7f7fd5 !important;
+}
+
+.ajd-input-icon {
+  color: #7f7fd5 !important;
+}
+
+/* Upload Section */
+.ajd-upload-section {
+  margin-top: 16px;
+}
+
+.ajd-upload-label {
+  font-weight: 600 !important;
+  color: #333;
+  margin-bottom: 12px !important;
+}
+
+.ajd-upload-container {
+  border: 2px dashed #e0e0e0;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.ajd-upload-container:hover {
+  border-color: #7f7fd5;
+}
+
+.ajd-upload-container.error {
+  border-color: #d32f2f;
+}
+
+.ajd-upload-label-container {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+.ajd-upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.ajd-upload-icon {
+  font-size: 48px !important;
+  color: #7f7fd5;
+  margin-bottom: 16px;
+}
+
+.ajd-upload-text {
+  color: #666;
+  margin-bottom: 16px !important;
+  text-align: center;
+}
+
+.ajd-upload-btn {
+  background: linear-gradient(135deg, #7f7fd5, #86a8e7) !important;
+  border-radius: 12px !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  padding: 8px 24px !important;
+  margin-bottom: 16px !important;
+}
+
+.ajd-upload-formats {
+  color: #999;
+}
+
+.ajd-file-preview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9ff;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.ajd-file-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ajd-file-icon {
+  color: #7f7fd5;
+}
+
+.ajd-file-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.ajd-file-name {
+  font-weight: 600 !important;
+  color: #333;
+  margin-bottom: 2px !important;
+}
+
+.ajd-file-size {
+  color: #666;
+}
+
+.ajd-file-remove {
+  color: #d32f2f !important;
+}
+
+/* Question Section */
+.ajd-question-section {
+  margin-bottom: 24px;
+}
+
+.ajd-question-label {
+  font-weight: 600 !important;
+  color: #333;
+  margin-bottom: 12px !important;
+}
+
+.ajd-form-control {
+  width: 100%;
+}
+
+/* Review Section */
+.ajd-review-paper {
+  padding: 24px;
+  border-radius: 12px !important;
+  background: #f8f9ff !important;
+  margin-bottom: 24px;
+}
+
+.ajd-review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.ajd-review-job-title {
+  font-weight: 700 !important;
+  color: #333;
+  margin-bottom: 4px !important;
+}
+
+.ajd-review-job-company {
+  color: #666;
+}
+
+.ajd-review-status-chip {
+  background: linear-gradient(135deg, #7f7fd5, #86a8e7) !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.ajd-review-divider {
+  margin: 16px 0 !important;
+}
+
+.ajd-review-section {
+  margin-bottom: 16px;
+}
+
+.ajd-review-section-title {
+  font-weight: 600 !important;
+  color: #333;
+  margin-bottom: 16px !important;
+}
+
+.ajd-review-field {
+  margin-bottom: 12px;
+}
+
+.ajd-review-field-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #666;
+  margin-bottom: 4px !important;
+}
+
+.ajd-review-field-icon {
+  color: #7f7fd5;
+  font-size: 16px !important;
+}
+
+.ajd-review-field-value {
+  font-weight: 600 !important;
+  color: #333;
+}
+
+.ajd-review-documents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ajd-review-document {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  border-radius: 8px;
+  padding: 12px 16px;
+  min-width: 200px;
+}
+
+.ajd-review-document-icon {
+  color: #7f7fd5;
+}
+
+.ajd-review-document-name {
+  font-weight: 600 !important;
+  color: #333;
+  margin-bottom: 2px !important;
+}
+
+.ajd-review-document-type {
+  color: #666;
+}
+
+.ajd-terms-section {
+  margin-top: 24px;
+}
+
+.ajd-terms-checkbox {
+  color: #7f7fd5 !important;
+}
+
+.ajd-terms-checkbox.Mui-checked {
+  color: #7f7fd5 !important;
+}
+
+.ajd-terms-label {
+  margin-left: 0 !important;
+}
+
+/* Dialog Actions */
+.ajd-dialog-actions {
+  padding: 16px 24px !important;
+  border-top: 1px solid #f0f0f0;
+}
+
+.ajd-action-right {
+  margin-left: auto;
+}
+
+.ajd-back-button {
+  color: #666 !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+}
+
+.ajd-next-button,
+.ajd-submit-button {
+  background: linear-gradient(135deg, #7f7fd5, #86a8e7) !important;
+  border-radius: 12px !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  padding: 8px 24px !important;
+}
+
+/* Success State */
+.ajd-success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.ajd-success-icon-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8f5e8, #f0f8ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.ajd-success-icon {
+  font-size: 48px !important;
+  color: #2e7d32;
+}
+
+.ajd-success-title {
+  font-weight: 700 !important;
+  color: #333;
+  margin-bottom: 16px !important;
+}
+
+.ajd-success-message {
+  color: #333;
+  margin-bottom: 16px !important;
+}
+
+.ajd-success-details {
+  color: #666;
+  margin-bottom: 32px !important;
+  max-width: 500px;
+}
+
+.ajd-success-btn {
+  background: linear-gradient(135deg, #7f7fd5, #86a8e7) !important;
+  border-radius: 12px !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  padding: 8px 32px !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .ajd-dialog-content {
+    padding: 16px !important;
+  }
+
+  .ajd-stepper {
+    margin-bottom: 24px !important;
+  }
+
+  .ajd-stepper .MuiStepLabel-label {
+    font-size: 0.75rem !important;
+  }
+
+  .ajd-review-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ajd-review-status-chip {
+    align-self: flex-start;
+  }
+
+  .ajd-dialog-actions {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ajd-action-right {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .ajd-back-button,
+  .ajd-next-button,
+  .ajd-submit-button {
+    width: 100%;
+  }
+}
+
+/* Additional Utility Classes */
+.mt-4 {
+  margin-top: 24px !important;
+}

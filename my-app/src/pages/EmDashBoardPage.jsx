@@ -78,6 +78,7 @@ export default function EmployerDashboard() {
     console.log("User logged out")
     handleUserMenuClose()
     navigate("/login")
+    window.location.reload();
   }
 
   const handlePostJob = () => {
@@ -110,11 +111,18 @@ export default function EmployerDashboard() {
   }
 }, [employerId]);
 
+//testing 
+     useEffect(() => {
+  console.log("shitJob :", postedJobs);
+}, [postedJobs]);
+
+
 const fetchJobsByEmployer = async (id) => {
   try {
     const token = localStorage.getItem("token");
 
     const res = await axios.get(`/jobs/${id}`);
+    console.log("Fetched jobs:", res.data);
     setPostedJobs(res.data);
   } catch (error) {
     console.error("Error loading jobs", error);
@@ -520,7 +528,7 @@ const handleDelete = async (jobId) => {
                     </div>
                     <div className="job-detail">
                       <BusinessCenter fontSize="small" />
-                      <Typography variant="body2">{job.salary}</Typography>
+                      <Typography variant="body2">{job.type}</Typography>
                     </div>
                   </div>
 

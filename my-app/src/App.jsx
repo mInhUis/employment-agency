@@ -27,11 +27,11 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route
           path="/dashboard"
-          element={RoleRedirect({ userRole })}
+          element={<RoleRedirect userRole={userRole} />} // ✅ JSX element
         />
         <Route
           path="/v2"
-          element={RoleRedirect({ userRole })} // Redirect based on role
+          element={<RoleRedirect userRole={userRole} />} // ✅ JSX element
         />
         <Route
           path="/post-job"
